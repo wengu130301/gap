@@ -33,7 +33,7 @@
     /* 安装包：全部為真實產物，檔名與根目錄一致，點擊即可下載 */
     downloads: [
       { id: "mac", os: "macOS", arch: "Apple Silicon · arm64", size: "132 MB",
-        file: "咕咚桌宠-1.0.0-arm64.dmg", icon: "laptop_mac" },
+        file: "咕咚桌宠-1.0.0-arm64.dmg", asset: "GudongPet-1.0.0-arm64.dmg", icon: "laptop_mac" },
       { id: "win", os: "Windows", arch: "x64 · 10 / 11", size: "95 MB",
         file: "GudongPet-Setup-1.0.0.exe", icon: "desktop_windows" },
       { id: "android", os: "Android", arch: "arm64 · 8.0+ · 模型已内置", size: "499 MB",
@@ -668,12 +668,13 @@
   /* =======================================================
      7.5 渲染：安裝包下載卡（真實檔名 / 體積）
      ======================================================= */
-  /* 安裝包直鏈：Pages 只託管頁面，二進位實體走 GitHub 媒體端（LFS 真檔，非指標檔） */
-  const CDN_BASE = "https://media.githubusercontent.com/media/wengu130301/gap/main/";
+  /* 安裝包直鏈：走 GitHub Release 附件（不佔 LFS 流量額度，不會因額度耗盡而下載失敗） */
+  const CDN_BASE = "https://github.com/wengu130301/gap/releases/download/v1.0.0/";
   function fileHref(d) {
     if (!d) return GUDONG.downloadUrl;
     if (d.url) return d.url;
-    return CDN_BASE + encodeURIComponent(d.file);
+    /* Release 附件名會被 GitHub 剝離非 ASCII 字元，故用 asset 指定線上實體檔名 */
+    return CDN_BASE + encodeURIComponent(d.asset || d.file);
   }
 
   function renderDownloads() {
