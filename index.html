@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>咕咚 GuDongPet v1.0.0 · 住在桌面上的小生物</title>
+<meta name="description" content="咕咚 GuDongPet v1.0.0 —— 透明置顶、会走会吃、接本机 Ollama 聊天的桌面小生物。macOS arm64 132 MB / Windows x64 95 MB，模型推理全在本地。LaswI Studio 出品。">
+<meta name="theme-color" content="#FF8A65">
+<link rel="icon" type="image/png" href="logo.png">
+
+<!-- 字體：Google Fonts（Space Grotesk / Fredoka / Noto Sans TC+SC / JetBrains Mono）+ Material Symbols -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&display=swap">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#features" data-i18n="a11y.skip">跳至主要內容</a>
+
+<!-- ① 固定導航 -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#hero" aria-label="LaswI Studio">
+      <img class="brand-logo" src="logo.png" alt="LaswI Studio">
+      <span class="brand-word stroke-text">LaswI</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="主導航">
+      <a href="#hero" data-i18n="nav.home">首頁</a>
+      <a href="#features" data-i18n="nav.features">功能</a>
+      <a href="#scenes" data-i18n="nav.scenes">場景</a>
+      <a href="#skins" data-i18n="nav.skins">皮膚</a>
+      <a href="#download" data-i18n="nav.download">下載</a>
+    </nav>
+
+    <div class="nav-right">
+      <!-- 版本角標：懸停展開更新日誌摘要 -->
+      <div class="version-chip" id="versionChip" tabindex="0" role="button" aria-label="版本與更新日誌">
+        <span class="mono version-num" data-bind="version">v0.1.0</span>
+        <div class="version-pop" id="versionPop"></div>
+      </div>
+
+      <!-- 語言分段按鈕 -->
+      <div class="lang-seg" id="langSeg" role="group" aria-label="Language">
+        <button type="button" data-lang="zh-Hans" class="is-active">
+          <span class="lang-full">簡體中文</span><span class="lang-short">简</span>
+        </button>
+        <button type="button" data-lang="zh-Hant">
+          <span class="lang-full">繁體中文</span><span class="lang-short">繁</span>
+        </button>
+        <button type="button" data-lang="en">
+          <span class="lang-full">English</span><span class="lang-short">EN</span>
+        </button>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="選單">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ② Hero 首屏 -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="blob blob-a" data-depth="26"></span>
+      <span class="blob blob-b" data-depth="-18"></span>
+      <span class="blob blob-c" data-depth="40"></span>
+      <span class="blob blob-d" data-depth="-34"></span>
+      <span class="blob blob-e" data-depth="14"></span>
+      <span class="blob blob-f" data-depth="-22"></span>
+      <span class="hero-glow"></span>
+      <span class="hero-ring ring-1"></span>
+      <span class="hero-ring ring-2"></span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="hero-brandline">
+          <img src="logo.png" alt="" class="hero-logo">
+          <span class="stroke-text hero-brandword">LaswI</span>
+        </div>
+
+        <p class="mono hero-kicker" data-i18n="hero.kicker">GU DONG PET · DESKTOP PET</p>
+        <h1 class="hero-title stroke-text gudong-name">咕咚</h1>
+        <p class="mono hero-en">GuDongPet</p>
+        <p class="hero-tagline" data-i18n="hero.tagline">一隻住在你桌面上的小傢伙</p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="heroDownload" href="#" target="_blank" rel="noopener">
+            <span data-i18n="cta.download">下載咕咚</span>
+            <span class="material-symbols-rounded btn-arrow" aria-hidden="true">arrow_outward</span>
+          </a>
+          <span class="mono hero-meta" data-bind="platforms">Windows · macOS</span>
+        </div>
+      </div>
+
+      <!-- 大尺寸鏤空咕咚（主視覺 1/3） -->
+      <div class="hero-stage">
+        <div class="gudong-slot gudong-main" data-pose="stand" data-grad="rainbow"></div>
+      </div>
+    </div>
+
+    <div class="hero-foot mono" aria-hidden="true">
+      <span>GuDongPet</span>
+      <span data-bind="version">v0.1.0</span>
+    </div>
+  </section>
+
+  <!-- ③ 咕咚會做什麼 -->
+  <section class="section features" id="features">
+    <div class="section-head">
+      <p class="mono kicker" data-i18n="features.kicker">FEATURES</p>
+      <h2 class="huge stroke-text" data-i18n="features.title">咕咚會做什麼</h2>
+      <p class="lead" data-i18n="features.lead">八件小事，它都做得挺認真。</p>
+    </div>
+    <div class="tile-grid" id="tileGrid"></div>
+  </section>
+
+  <!-- ④ 桌面場景模擬 -->
+  <section class="section scenes" id="scenes">
+    <div class="section-head">
+      <p class="mono kicker" data-i18n="scenes.kicker">DESKTOP</p>
+      <h2 class="huge stroke-text" data-i18n="scenes.title">桌面場景</h2>
+      <p class="lead" data-i18n="scenes.lead">它出現在你的桌面上的五種樣子。</p>
+    </div>
+    <div class="scene-grid" id="sceneGrid"></div>
+  </section>
+
+  <!-- ⑤ 咕咚說 -->
+  <section class="section quotes" id="quotes">
+    <div class="section-head">
+      <p class="mono kicker" data-i18n="quotes.kicker">QUOTES</p>
+      <h2 class="huge stroke-text" data-i18n="quotes.title">咕咚說</h2>
+      <p class="lead" data-i18n="quotes.lead">它有時候話很多，偶爾也很有道理。</p>
+    </div>
+    <div class="bubble-grid" id="bubbleGrid"></div>
+    <p class="mono quotes-hint" data-i18n="quotes.hint">點擊氣泡，換一句話</p>
+  </section>
+
+  <!-- ⑥ 状态机 -->
+  <section class="section skins" id="skins">
+    <div class="section-head head-row">
+      <div>
+        <p class="mono kicker" data-i18n="skins.kicker">STATES</p>
+        <h2 class="huge stroke-text" data-i18n="skins.title">五种状态</h2>
+        <p class="lead" data-i18n="skins.lead">状态机会自己切，四个数值决定它现在在干什么。</p>
+      </div>
+      <div class="fab-row">
+        <button class="fab" type="button" id="skinPrev" aria-label="向左捲動">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_left_alt</span>
+        </button>
+        <button class="fab" type="button" id="skinNext" aria-label="向右捲動">
+          <span class="material-symbols-rounded" aria-hidden="true">arrow_right_alt</span>
+        </button>
+      </div>
+    </div>
+    <div class="skin-track" id="skinTrack" tabindex="0" role="region" aria-label="狀態列表"></div>
+  </section>
+
+  <!-- ⑦ 版本與更新日誌 -->
+  <section class="section release" id="release">
+    <div class="release-card">
+      <div class="release-left">
+        <p class="mono kicker" data-i18n="release.kicker">VERSION</p>
+        <div class="release-version stroke-text" data-bind="version">v0.1.0</div>
+        <p class="mono release-meta">
+          <span data-bind="platforms">Windows · macOS</span>
+          <span class="dot">·</span>
+          <span data-bind="releaseDate">2026-11-04</span>
+        </p>
+      </div>
+      <div class="release-right">
+        <h3 class="release-log-title" data-i18n="release.logTitle">更新日誌</h3>
+        <ul class="log-list" id="logList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 下載 -->
+  <section class="section download" id="download">
+    <div class="download-card">
+      <div class="download-pet" aria-hidden="true">
+        <div class="gudong-slot" data-pose="sign" data-grad="rainbow"></div>
+      </div>
+
+      <h2 class="download-title huge">
+        <span class="mono download-pre">GET</span>
+        <span class="stroke-text gudong-name">咕咚</span>
+      </h2>
+
+      <div class="dl-grid" id="dlGrid"></div>
+
+      <p class="mono download-meta">
+        <span data-bind="version">v1.0.0</span><span class="dot">·</span><span data-bind="platforms">macOS (Apple Silicon) · Windows x64</span>
+      </p>
+
+      <div class="download-notes">
+        <p class="download-note" data-i18n="download.install">安裝說明</p>
+        <p class="download-note" data-i18n="download.system">系統需求</p>
+        <p class="download-note download-privacy" data-i18n="download.privacy">隱私</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ⑨ 頁腳 -->
+<footer class="footer" id="footer">
+  <p class="mono kicker" data-i18n="footer.kicker">CONTACT</p>
+  <h2 class="huge stroke-text footer-title">LET'S TALK</h2>
+  <div class="mail-list" id="mailList"></div>
+  <p class="footer-note" data-i18n="footer.note">使用中遇到問題，歡迎郵件聯繫我們。</p>
+  <p class="mono footer-copy">
+    © <span data-bind="brand">LaswI Studio</span> / GuDongPet · <span data-bind="version">v0.1.0</span>
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
