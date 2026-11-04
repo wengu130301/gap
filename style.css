@@ -968,10 +968,10 @@ button{ font: inherit; color: inherit; border: 0; background: none; cursor: poin
 /* ---------- 12.5 安裝包下載卡 ---------- */
 .dl-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 14px;
   width: 100%;
-  max-width: 620px;
+  max-width: 900px;
   margin: 26px auto 0;
 }
 .dl-card{
@@ -1051,6 +1051,9 @@ button{ font: inherit; color: inherit; border: 0; background: none; cursor: poin
 }
 @media (max-width: 620px){
   .dl-grid{ grid-template-columns: 1fr; max-width: 420px; }
+}
+@media (min-width: 621px){
+  .dl-grid{ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 
 /* ---------- 13. Footer ---------- */

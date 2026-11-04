@@ -27,7 +27,7 @@
       "en": "Download GuDong"
     },
     releaseDate: "2026-11-04",
-    platforms: ["macOS (Apple Silicon)", "Windows x64"],
+    platforms: ["macOS (Apple Silicon)", "Windows x64", "Android arm64"],
     emails: ["3199704668@qq.com", "1828236908@qq.com"],
 
     /* 安装包：全部為真實產物，檔名與根目錄一致，點擊即可下載 */
@@ -35,7 +35,9 @@
       { id: "mac", os: "macOS", arch: "Apple Silicon · arm64", size: "132 MB",
         file: "咕咚桌宠-1.0.0-arm64.dmg", icon: "laptop_mac" },
       { id: "win", os: "Windows", arch: "x64 · 10 / 11", size: "95 MB",
-        file: "GudongPet-Setup-1.0.0.exe", icon: "desktop_windows" }
+        file: "GudongPet-Setup-1.0.0.exe", icon: "desktop_windows" },
+      { id: "android", os: "Android", arch: "arm64 · 8.0+ · 模型已内置", size: "499 MB",
+        file: "GudongPet-Android-1.0.0-arm64.apk", icon: "smartphone" }
     ],
 
     /* 功能磁貼：tone = tonal 配色；span = 版面佔位 */
@@ -192,7 +194,7 @@
       a11y: { skip: "跳至主要内容" },
       nav: { home: "首页", features: "功能", scenes: "场景", skins: "状态", download: "下载" },
       hero: {
-        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS",
+        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS / ANDROID",
         tagline: "透明置顶、会走会吃、能陪你聊天的桌面小生物。模型跑在你自己的电脑上，不联网。"
       },
       cta: { download: "下载咕咚" },
@@ -237,15 +239,16 @@
           nap:    { name: "打盹", desc: "精力见底就缩起来睡，Zzz 往上飘。" }
         }
       },
-      release: { kicker: "VERSION", logTitle: "更新日志", system: "macOS arm64 / Windows x64" },
+      release: { kicker: "VERSION", logTitle: "更新日志", system: "macOS arm64 / Windows x64 / Android arm64" },
       download: {
         kicker: "DOWNLOAD", title: "现在装一个",
-        install: "macOS：打开 DMG，把「咕咚桌宠」拖进「应用程序」。首次打开若提示未验证的开发者，右键 → 打开。",
-        system: "系统要求：macOS 11 及以上（Apple Silicon）/ Windows 10 x64 及以上。对话与看图需另装 Ollama 并拉取 qwen2.5。",
+        install: "macOS：打开 DMG，把「咕咚桌宠」拖进「应用程序」。首次打开若提示未验证的开发者，右键 → 打开。\nAndroid：装上 APK，打开后先授予「显示在其他应用上层」，再点「把咕咚放到桌面上」。模型已内置，不用装 Ollama。",
+        system: "系统要求：macOS 11 及以上（Apple Silicon）/ Windows 10 x64 及以上 / Android 8.0 及以上（arm64）。桌面端对话与看图需另装 Ollama 并拉取 qwen2.5；Android 版模型已打包进 APK，装完即可对话。",
         privacy: "全部在你本机跑：模型推理、图片、存档都不上传服务器。",
         items: {
           mac: { os: "macOS", note: "Apple Silicon · arm64 · DMG" },
-          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" }
+          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" },
+          android: { os: "Android", note: "arm64 · Android 8.0+ · APK · built-in model" }
         }
       },
       footer: { kicker: "CONTACT", note: "用着不对、或者想加点什么，写邮件给我。" }
@@ -256,7 +259,7 @@
       a11y: { skip: "跳至主要內容" },
       nav: { home: "首頁", features: "功能", scenes: "場景", skins: "狀態", download: "下載" },
       hero: {
-        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS",
+        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS / ANDROID",
         tagline: "透明置頂、會走會吃、能陪你聊天的桌面小生物。模型跑在你自己的電腦上，不連網。"
       },
       cta: { download: "下載咕咚" },
@@ -301,15 +304,16 @@
           nap:    { name: "打盹", desc: "精力見底就縮起來睡，Zzz 往上飄。" }
         }
       },
-      release: { kicker: "VERSION", logTitle: "更新日誌", system: "macOS arm64 / Windows x64" },
+      release: { kicker: "VERSION", logTitle: "更新日誌", system: "macOS arm64 / Windows x64 / Android arm64" },
       download: {
         kicker: "DOWNLOAD", title: "現在裝一個",
-        install: "macOS：開啟 DMG，把「咕咚桌宠」拖進「應用程式」。首次開啟若提示未驗證的開發者，右鍵 → 打開。",
-        system: "系統需求：macOS 11 及以上（Apple Silicon）/ Windows 10 x64 及以上。對話與看圖需另裝 Ollama 並拉取 qwen2.5。",
+        install: "macOS：開啟 DMG，把「咕咚桌宠」拖進「應用程式」。首次開啟若提示未驗證的開發者，右鍵 → 打開。\nAndroid：裝上 APK，開啟後先授予「顯示在其他應用上層」，再點「把咕咚放到桌面上」。模型已內建，不用裝 Ollama。",
+        system: "系統需求：macOS 11 及以上（Apple Silicon）/ Windows 10 x64 及以上 / Android 8.0 及以上（arm64）。桌機版對話與看圖需另裝 Ollama 並拉取 qwen2.5；Android 版模型已打包進 APK，裝完即可對話。",
         privacy: "全部在你本機跑：模型推理、圖片、存檔都不上傳伺服器。",
         items: {
           mac: { os: "macOS", note: "Apple Silicon · arm64 · DMG" },
-          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" }
+          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" },
+          android: { os: "Android", note: "arm64 · Android 8.0+ · APK · built-in model" }
         }
       },
       footer: { kicker: "CONTACT", note: "用著不對、或者想加點什麼，寫郵件給我。" }
@@ -320,7 +324,7 @@
       a11y: { skip: "Skip to main content" },
       nav: { home: "Home", features: "Features", scenes: "Scenes", skins: "States", download: "Download" },
       hero: {
-        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS",
+        kicker: "GU DONG PET · v1.0.0 · macOS / WINDOWS / ANDROID",
         tagline: "A transparent, always-on-top desktop creature that walks, eats, and talks with you. The model runs on your own machine — nothing is uploaded."
       },
       cta: { download: "Download GuDong" },
@@ -366,15 +370,16 @@
           nap:    { name: "Napping", desc: "Energy empty, curled up asleep with Zzz drifting up." }
         }
       },
-      release: { kicker: "VERSION", logTitle: "Changelog", system: "macOS arm64 / Windows x64" },
+      release: { kicker: "VERSION", logTitle: "Changelog", system: "macOS arm64 / Windows x64 / Android arm64" },
       download: {
         kicker: "DOWNLOAD", title: "Get it now",
-        install: "macOS: open the DMG and drag GuDongPet into Applications. If macOS blocks the unsigned build, right-click → Open. Windows: run the EXE, install location is optional.",
-        system: "Requires macOS 11+ (Apple Silicon) or Windows 10 x64+. Chat and image reading need Ollama with qwen2.5 pulled.",
+        install: "macOS: open the DMG and drag GuDongPet into Applications. If macOS blocks the unsigned build, right-click → Open. Windows: run the EXE, install location is optional. Android: install the APK, grant \"Display over other apps\", then tap \"Put GuDong on the desktop\". The model is bundled, no Ollama needed.",
+        system: "Requires macOS 11+ (Apple Silicon), Windows 10 x64+, or Android 8.0+ on arm64. Desktop chat and image reading need Ollama with qwen2.5 pulled; the Android build ships the model inside the APK.",
         privacy: "Everything runs locally: inference, images and save data never leave your computer.",
         items: {
           mac: { os: "macOS", note: "Apple Silicon · arm64 · DMG" },
-          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" }
+          win: { os: "Windows", note: "x64 · Windows 10 / 11 · EXE" },
+          android: { os: "Android", note: "arm64 · Android 8.0+ · APK · built-in model" }
         }
       },
       footer: { kicker: "CONTACT", note: "Something off, or a feature you want? Send a mail." }
@@ -663,6 +668,14 @@
   /* =======================================================
      7.5 渲染：安裝包下載卡（真實檔名 / 體積）
      ======================================================= */
+  /* 安裝包直鏈：Pages 只託管頁面，二進位實體走 GitHub 媒體端（LFS 真檔，非指標檔） */
+  const CDN_BASE = "https://media.githubusercontent.com/media/wengu130301/gap/main/";
+  function fileHref(d) {
+    if (!d) return GUDONG.downloadUrl;
+    if (d.url) return d.url;
+    return CDN_BASE + encodeURIComponent(d.file);
+  }
+
   function renderDownloads() {
     const wrap = $("#dlGrid");
     if (!wrap) return;
@@ -670,7 +683,7 @@
       .map(function (d) {
         const item = t("download.items." + d.id) || {};
         return (
-          '<a class="dl-card" href="' + encodeURI(d.file) + '" download>' +
+          '<a class="dl-card" href="' + fileHref(d) + '" download>' +
             '<span class="dl-icon material-symbols-rounded" aria-hidden="true">' + d.icon + "</span>" +
             '<span class="dl-body">' +
               '<strong class="dl-os">' + (item.os || d.os) + "</strong>" +
@@ -762,7 +775,7 @@
       if (binds[key]) el.textContent = binds[key];
     });
 
-    const firstPkg = (GUDONG.downloads && GUDONG.downloads[0]) ? encodeURI(GUDONG.downloads[0].file) : GUDONG.downloadUrl;
+    const firstPkg = (GUDONG.downloads && GUDONG.downloads[0]) ? fileHref(GUDONG.downloads[0]) : GUDONG.downloadUrl;
     $$("#heroDownload, #mainDownload").forEach(function (a) {
       a.setAttribute("href", firstPkg);
       a.setAttribute("download", "");
